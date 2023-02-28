@@ -1,0 +1,6 @@
+task packageApk {
+    // 让packageApk 依赖于assembleRelease(Debug). 包构建成功后
+    //才会执行uploadApk()
+    def apkDir = new File("./app/build/outputs/apk/${BUILD_TYPE}")
+    dependsOn("assemble" + BUILD_TYPE.capitalize())
+}
